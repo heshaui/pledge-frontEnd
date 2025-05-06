@@ -1,7 +1,6 @@
 // config.ts
-import { http } from "wagmi";
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
-import { Chain } from "viem";
+import { Chain, http } from "viem";
 
 // 1. 自定义 BSC 主网 和 测试网链
 export const bscMainnet: Chain = {
