@@ -1,3 +1,7 @@
+// utils/chains.ts
+import { bsc, bscTestnet } from 'viem/chains';
+import { Chain } from "viem";
+
 /**
  * List of all the networks supported by the Uniswap Interface
  */
@@ -9,6 +13,17 @@ export enum SupportedChainId {
 export const CHAIN_IDS_TO_NAMES = {
   [SupportedChainId.MAINNET]: 'BSC-mainnet',
   [SupportedChainId.BSCTEST]: 'BSC-testnet',
+};
+
+export const supportedChains: Record<number, { chain: Chain; rpcUrl: string }>= {
+    [SupportedChainId.MAINNET]: {
+      chain: bsc,
+      rpcUrl: 'https://bsc-dataseed.binance.org/',
+    },
+    [SupportedChainId.BSCTEST]: {
+      chain: bscTestnet,
+      rpcUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+    }
 };
 
 /**

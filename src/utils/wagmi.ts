@@ -41,7 +41,7 @@ const projectId = "ba6959053c9d7ba9a364dab98d9fb4f0";
 
 // 3. 配置 WAGMI
 export const config = getDefaultConfig({
-  appName: 'Rcc Stake',
+  appName: 'PLEDGE',
   projectId,
   chains: [bscMainnet, bscTestnet],
   transports: {
@@ -50,3 +50,5 @@ export const config = getDefaultConfig({
   },
   ssr: true
 });
+
+export const defaultChainId = bscMainnet.id
