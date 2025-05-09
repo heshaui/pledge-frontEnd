@@ -6,7 +6,7 @@ import {
     GetContractReturnType
 } from 'viem';
 import { useChainId, useWalletClient } from 'wagmi';
-import { getContract } from '_utils/contractHelper';
+import getContract from '_utils/contractHelper';
 
 type UseContractOptions = {
     chainId?: number

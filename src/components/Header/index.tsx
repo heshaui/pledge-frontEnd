@@ -1,28 +1,36 @@
-'use client';
-import { ConnectButton } from '@rainbow-me/rainbowkit'
+'use client'
 import Link from "next/link"
+import Image from 'next/image'
+import WalletConnect from "../WalletConnect";
+import logo from '_assets/images/vector.png';
 import { usePathname } from "next/navigation"
 const Header = () => {
     const links = [
-        {path: '/', name: 'Home'}
+        {path: '/', name: 'Market'},
+        {path: '/Market/:mode'},
+
     ]
     const pathname = usePathname()
     return (
-        <header className='flex justify-between border-solid border-b-1 border-[#ccc] h-[70px] items-center px-[20px]'>
-            <h3 className='text-[20px] font-bold'>PLEDGE</h3>
-            <ul className='flex'>
-                {
-                    links.map(link => {
-                        const active = (pathname === link.path || pathname === link.path + '/');
-                        return (
-                            <li className={`text-[18px] ${active ? 'font-bold' : 'font-[500]'}`}>
-                                <Link href={link.path}>{link.name}</Link>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-            <ConnectButton />
+        <header className='border-b-1 border-[#ccc] h-[70px]'>
+            <div className='w-[1200px] h-[100%] m-auto flex justify-between items-center'>
+                <div className="flex items-center">
+                    <Link href="/" className='mr-[15px]'><Image src={logo} alt="Logo" width={100} height={100} /></Link>
+                    <ul className='flex'>
+                        {
+                            links.map((link, key) => {
+                                const active = (pathname === link.path || pathname === link.path + '/');
+                                return (
+                                    <li key={key} className={`text-[20px] ${active ? 'text-[#333]' : 'text-[#666]'}`}>
+                                        <Link href={link.path}>{link.name}</Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+                <WalletConnect />
+            </div>
         </header>
     )
 }

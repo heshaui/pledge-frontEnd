@@ -15,7 +15,7 @@ type GetContractFn = <
   chain: TWalletClient['chain'] | undefined
 }
 
-export const getContract: GetContractFn = ({
+const getContract: GetContractFn = ({
 	abi,
 	address,
 	chainId = defaultChainId,
@@ -36,3 +36,5 @@ export const getContract: GetContractFn = ({
 		chain: signer?.chain
 	}
 }
+
+export default getContract;
